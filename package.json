@@ -1,5 +1,12 @@
 {
   "name": "cordova-plugin-hce",
   "version": "0.1.0",
-  "cordova": { "id": "cordova-plugin-hce", "platforms": ["android"] }
+  "description": "Cordova plugin to emulate NFC Host Card (Type-4 NDEF) via Android HCE",
+  "cordova": {
+    "id": "cordova-plugin-hce",
+    "platforms": ["android"]
+  },
+  "keywords": ["cordova", "nfc", "hce", "android"],
+  "author": "Your Name",
+  "license": "Apache-2.0"
 }
