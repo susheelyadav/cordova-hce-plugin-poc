@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<plugin id="cordova-plugin-hce" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+<plugin id="cordova-plugin-hce" version="0.1.0"
+        xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
   <name>cordova-plugin-hce</name>
   <description>Cordova plugin to emulate an NFC tag via Android HCE and serve a text message.</description>
-  <license>Apache 2.0</license>
+  <license>Apache-2.0</license>
   <keywords>cordova, hce, nfc</keywords>
 
   <js-module src="www/hce.js" name="HCE">
@@ -10,12 +13,18 @@
   </js-module>
 
   <platform name="android">
+    <!-- add HCE feature to manifest -->
     <config-file target="AndroidManifest.xml" parent="/manifest">
       <uses-feature android:name="android.hardware.nfc.hce" android:required="true" />
     </config-file>
 
+    <!-- resource files -->
+    <resource-file src="res/xml/apduservice.xml" target="res/xml/apduservice.xml" />
+    <resource-file src="res/values/strings.xml" target="res/values/strings.xml" />
+
+    <!-- Java sources (make sure these files exist under src/android/) -->
     <source-file src="src/android/HcePlugin.java" target-dir="src/com/example/hceplugin" />
     <source-file src="src/android/HCEService.java" target-dir="src/com/example/hceplugin" />
-    <resource-file src="res/xml/apduservice.xml" target="res/xml/apduservice.xml" />
+    <source-file src="src/android/HCEServiceSingleton.java" target-dir="src/com/example/hceplugin" />
   </platform>
 </plugin>
