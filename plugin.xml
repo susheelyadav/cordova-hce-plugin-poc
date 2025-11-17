@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin id="cordova-plugin-hce" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+  <name>cordova-plugin-hce</name>
+  <description>Cordova plugin to emulate an NFC tag via Android HCE and serve a text message.</description>
+  <license>Apache 2.0</license>
+  <keywords>cordova, hce, nfc</keywords>
+
+  <js-module src="www/hce.js" name="HCE">
+    <clobbers target="window.hce" />
+  </js-module>
+
+  <platform name="android">
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+      <uses-feature android:name="android.hardware.nfc.hce" android:required="true" />
+    </config-file>
+
+    <source-file src="src/android/HcePlugin.java" target-dir="src/com/example/hceplugin" />
+    <source-file src="src/android/HCEService.java" target-dir="src/com/example/hceplugin" />
+    <resource-file src="res/xml/apduservice.xml" target="res/xml/apduservice.xml" />
+  </platform>
+</plugin>
