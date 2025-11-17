@@ -1,0 +1,5 @@
+{
+  "name": "cordova-plugin-hce",
+  "version": "0.1.0",
+  "cordova": { "id": "cordova-plugin-hce", "platforms": ["android"] }
+}
